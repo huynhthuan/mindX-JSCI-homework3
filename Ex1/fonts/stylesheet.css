@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'BeaufortforLOL';
+    src: url('BeaufortforLOL-Bold.eot');
+    src: url('BeaufortforLOL-Bold.eot?#iefix') format('embedded-opentype'),
+        url('BeaufortforLOL-Bold.woff2') format('woff2'),
+        url('BeaufortforLOL-Bold.woff') format('woff'),
+        url('BeaufortforLOL-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'BeaufortforLOL';
+    src: url('BeaufortforLOL-Regular.eot');
+    src: url('BeaufortforLOL-Regular.eot?#iefix') format('embedded-opentype'),
+        url('BeaufortforLOL-Regular.woff2') format('woff2'),
+        url('BeaufortforLOL-Regular.woff') format('woff'),
+        url('BeaufortforLOL-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

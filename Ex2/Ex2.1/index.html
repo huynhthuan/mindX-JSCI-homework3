@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./style.css">
+    <title>Home work 2</title>
+</head>
+
+<body>
+
+    <main>
+        <div class="container">
+            <h1 class="text-center pt-5">Quản lý các nhân viên</h1>
+            <div class="table-action d-flex py-2">
+                <button class="btn btn-success ms-auto" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+                    aria-controls="offcanvasExample">Thêm nhóm nhân viên</button>
+            </div>
+            <table class="table table-bordered" id="employee-collection-table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center" width="20%">#ID</th>
+                        <th scope="col" class="text-center" width="30%">Tên</th>
+                        <th scope="col" class="text-center" width="30%">Người tạo</th>
+                        <th scope="col" class="text-center" width="20%">Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Add Employee Collection -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Thêm nhóm nhân viên</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <form id="employee-collection-form">
+                <div class="mb-3">
+                    <label for="collection-name" class="form-label">Tên nhóm nhân viên:</label>
+                    <input type="text" class="form-control" id="collection-name">
+                </div>
+                <div class="mb-3">
+                    <label for="collection-creater-name" class="form-label">Tên người tạo:</label>
+                    <input type="text" class="form-control" id="collection-creater-name">
+                </div>
+            </form>
+            <div class="mb-3 d-flex">
+                <button id="btn-collection" class="btn btn-success ms-auto">Thêm mới</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Employee -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample2" aria-labelledby="offcanvasExampleLabel2">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel2">Thêm nhân viên</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <form id="employee-form">
+                <div class="mb-3">
+                    <label for="employee-name" class="form-label">Tên nhân viên:</label>
+                    <input type="text" class="form-control" id="employee-name">
+                </div>
+                <div class="mb-3">
+                    <label for="employee-image" class="form-label">Url hình ảnh:</label>
+                    <input type="text" class="form-control" id="employee-image">
+                </div>
+            </form>
+            <div class="mb-3 d-flex">
+                <button id="btn-employee" class="btn btn-success ms-auto">Thêm mới</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Employee -->
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel2">Danh sách nhân viên</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="employee-form">
+                        <div class="mb-3">
+                            <label for="employee-name" class="form-label">Tên nhân viên:</label>
+                            <input type="text" class="form-control" id="edit-employee-name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="employee-image" class="form-label">Url hình ảnh:</label>
+                            <input type="text" class="form-control" id="edit-employee-image">
+                        </div>
+                    </form>
+                    <div class="mb-3 d-flex">
+                        <button id="btn-edit-employee" class="btn btn-success ms-auto">Cập nhật</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- List employee of Collection employee -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Danh sách nhân viên</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered" id="employee-table">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="text-center" width="20%">#ID</th>
+                                <th scope="col" class="text-center" width="30%">Avatar</th>
+                                <th scope="col" class="text-center" width="20%">Tên</th>
+                                <th scope="col" class="text-center" width="10%">Ngày thêm</th>
+                                <th scope="col" class="text-center" width="20%">Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+    <script src="./Employee.js" type="module"></script>
+    <script src="./EmployeeCollection.js" type="module"></script>
+    <script src="./script.js" type="module"></script>
+</body>
+
+</html>

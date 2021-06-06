@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="warehouse-title text-center p-5">
+            <span id="warehouse-name">#### ###### ######</span> - <span id="warehouse-location">#####</span>
+        </h2>
+        <div class="warehouse-action mb-4 d-flex justify-content-end">
+            <button id="check-revenue" class="btn btn-warning">
+                <i class="fas fa-check"></i> Kiểm tra doanh thu
+            </button>
+
+            <button id="add-commodity" class="btn btn-success ms-2" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                <i class="fas fa-folder-plus"></i> Thêm hàng hóa
+            </button>
+        </div>
+        <div class="warehouse-list">
+            <table class="table table-bordered" id="warehouse">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center" width="10%">#ID</th>
+                        <th scope="col" class="text-center" width="20%">Tên mặt hàng</th>
+                        <th scope="col" class="text-center" width="20%">Nhà sản xuất</th>
+                        <th scope="col" class="text-center" width="10%">Giá thành</th>
+                        <th scope="col" class="text-center" width="10%">Giảm giá (%)</th>
+                        <th scope="col" class="text-center" width="20%">Ngày nhập</th>
+                        <th scope="col" class="text-center" width="10%">Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Add comodity -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Thêm hàng hóa</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <form id="commodity-form">
+                <div class="mb-3">
+                    <label for="commodity-type" class="form-label">Loại hàng hóa:</label>
+                    <select class="form-select" id="commodity-type" aria-label="Default select example">
+                        <option value="fruit">Trái cây</option>
+                        <option value="houseware">Đồ da dụng</option>
+                        <option value="clothes">Quần áo</option>
+                        <option value="food">Đồ ăn</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="commodity-name" class="form-label">Tên hàng hóa:</label>
+                    <input type="text" class="form-control" id="commodity-name">
+                </div>
+                <div class="mb-3">
+                    <label for="commodity-producer" class="form-label">Nhà sản xuất:</label>
+                    <input type="text" class="form-control" id="commodity-producer">
+                </div>
+                <div class="mb-3">
+                    <label for="commodity-price" class="form-label">Giá thành:</label>
+                    <input type="text" class="form-control" id="commodity-price">
+                </div>
+                <div class="mb-3">
+                    <label for="commodity-sale-percent" class="form-label">Giảm giá (%):</label>
+                    <input type="text" class="form-control" id="commodity-sale-percent">
+                </div>
+                <div class="mb-3">
+                    <label for="commodity-date-added" class="form-label">Ngày nhập:</label>
+                    <input type="date" class="form-control" id="commodity-date-added">
+                </div>
+                <hr>
+                <p>
+                    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button"
+                        aria-expanded="false" aria-controls="collapseExample">
+                        Thuộc tính
+                    </a>
+                </p>
+                <div class="collapse" id="collapseExample">
+                    <div class="mb-3">
+                        <label for="commodity-stamina" class="form-label">Độ bền:</label>
+                        <input type="text" class="form-control" id="commodity-stamina">
+                    </div>
+                    <div class="mb-3">
+                        <label for="commodity-origin" class="form-label">Xuất xứ:</label>
+                        <input type="text" class="form-control" id="commodity-origin">
+                    </div>
+                    <div class="mb-3">
+                        <label for="commodity-material" class="form-label">Chất liệu:</label>
+                        <input type="text" class="form-control" id="commodity-material">
+                    </div>
+                    <div class="mb-3">
+                        <label for="commodity-taste" class="form-label">Vị:</label>
+                        <input type="text" class="form-control" id="commodity-taste">
+                    </div>
+                </div>
+            </form>
+            <div class="mb-3 d-flex">
+                <button id="btn-commodity" class="btn btn-success ms-auto">Thêm mới</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Check Revenue -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Kiểm tra doanh thu</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <h4>Doanh thu hiện tại</h4>
+                    <h1><span id="total-revenue">9999999999</span> VNĐ</h1>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+    <script src="./Class/Commodity.js" type="module"></script>
+    <script src="./Class/Houseware.js" type="module"></script>
+    <script src="./Class/Clothes.js" type="module"></script>
+    <script src="./Class/Fruit.js" type="module"></script>
+    <script src="./Class/Food.js" type="module"></script>
+    <script src="./Class/Warehouse.js" type="module"></script>
+    <script src="./element.js" type="module"></script>
+    <script src="./Helpers/bindEvent.js" type="module"></script>
+    <script src="./script.js" type="module"></script>
+</body>
+
+</html>

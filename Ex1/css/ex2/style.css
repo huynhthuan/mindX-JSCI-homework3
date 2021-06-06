@@ -1,0 +1,82 @@
+body {
+    font-family: 'BeaufortforLOL', Arial, sans-serif;
+    background: #0a0a0c;
+    -webkit-font-smoothing: antialised;
+}
+
+#bg {
+    background-image: url('https://universe.leagueoflegends.com/images/championsBackground.jpg');
+    filter: brightness(0.4);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.2;
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.remove-col {
+    width: 0;
+    transition: 0.4s;
+}
+
+.main {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-add {
+    position: fixed;
+    right: 5%;
+    bottom: 5%;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border-radius: 100%;
+    background: #927345;
+    border-color: #927345;
+}
+
+.btn-add:hover {
+    background: white;
+    color: #927345;
+}
+
+.btn-recache {
+    position: fixed;
+    right: 5%;
+    bottom: 12%;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border-radius: 100%;
+    background: #927345;
+    border-color: #927345;
+}
+
+.btn-recache:hover {
+    background: white;
+    color: #927345;
+}
+
+.loading {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0a0a0cf8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading.active {
+    opacity: 1;
+    visibility: visible;
+}

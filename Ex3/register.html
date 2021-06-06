@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 pt-5">
+                <h1 class="text-center">Đăng ký</h1>
+            </div>
+            <div class="col-md-6 mx-auto">
+                <form id="loginForm" class="border p-4 mt-5 rounded">
+                    <custom-input type="text" label="Tên đăng nhập:" label-for="username" input-id="username"
+                        placeholder="Điền tên đăng nhập" name="username">
+                    </custom-input>
+                    <custom-input type="email" label="Email:" label-for="email" input-id="email"
+                        placeholder="Điền email" name="email">
+                    </custom-input>
+                    <custom-input type="date" label="Ngày sinh:" label-for="bod" input-id="bod"
+                        placeholder="Chọn ngày sinh" name="bod">
+                    </custom-input>
+                    <hr>
+                    <custom-input type="password" label="Mật khẩu:" label-for="password" input-id="password"
+                        placeholder="Nhập mật khẩu" name="password">
+                    </custom-input>
+                    <custom-input type="password" label="Nhập lại mật khẩu:" label-for="re-password"
+                        input-id="re-password" placeholder="Nhập lại mật khẩu" name="re-password">
+                    </custom-input>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-success w-100">Đăng ký</button>
+                    </div>
+                    <a href="./login.html" class="d-block text-center">Đăng nhập</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="./Input/text.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
